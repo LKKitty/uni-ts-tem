@@ -3,10 +3,44 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/index/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/test/index",
+			"style": {
+				"navigationBarTitleText": "测试页"
 			}
 		}
-	],
+  ],
+  "tabBar": {
+    "color": "",
+    "selectedColor": "",
+    "backgroundColor": "",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "home",
+        "iconPath": "./static/logo.png",
+        "selectedIconPath": "./static/logo.png"
+      },
+      {
+        "pagePath": "pages/test/index",
+        "text": "test",
+        "iconPath": "./static/logo-youhe.png",
+        "selectedIconPath": "./static/logo-youhe.png"
+      }
+    ]
+  },
+
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

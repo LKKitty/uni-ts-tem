@@ -1,50 +1,43 @@
 <template>
-	<view class="content">
-        <image class="logo" src="../../static/logo.png"></image>
-		<view>
-            <text class="title">{{title}}</text>
-        </view>
-	</view>
+  <div class="test flex-box">
+    <img class="img" src="@/static/logo.png" alt="" />
+    <button class="login-button" type="default" @click="login">登录</button>
+  </div>
 </template>
 
 <script lang="ts">
-    import Vue from 'vue';
-	export default Vue.extend({
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
+//这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
+import { Component, Vue, Watch, Prop } from "vue-property-decorator";
 
-		},
-		methods: {
-
-		}
-	});
+@Component({
+  name: ""
+})
+export default class extends Vue {
+  title: string = "djskfh s";
+  login() {
+    uni.request({
+      url:
+        "https://www.easy-mock.com/mock/5f85187a29d84206ef0e7510/api/test/one",
+      success: res => {
+        console.log(res.data);
+      }
+    });
+  }
+}
 </script>
-
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+<style lang="scss" scoped>
+.test {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .img {
+    width: 100rpx;
+    height: 100rpx;
+  }
+  .login-button {
+    margin-top: 50rpx;
+    width: 200rpx;
+  }
+}
 </style>
