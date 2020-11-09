@@ -23,7 +23,9 @@
       "webpack-env",
       "@dcloudio/types",
       "miniprogram-api-typings",
-      "mini-types"
+      "mini-types",
+      "weixin-app",
+      "@decloudio/types/uni-app"
     ],
     "paths": {
       "@/*": [

@@ -1762,6 +1762,11 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
+"@types/weixin-app@^2.9.1":
+  version "2.9.1"
+  resolved "https://registry.npm.taobao.org/@types/weixin-app/download/@types/weixin-app-2.9.1.tgz#bcfdc6cbfb070f2b9c1416f9cd93f2bd72c65c1a"
+  integrity sha1-vP3Gy/sHDyucFBb5zZPyvXLGXBo=
+
 "@types/yargs-parser@*":
   version "15.0.0"
   resolved "https://registry.yarnpkg.com/@types/yargs-parser/-/yargs-parser-15.0.0.tgz#cb3f9f741869e20cce330ffbeb9271590483882d"

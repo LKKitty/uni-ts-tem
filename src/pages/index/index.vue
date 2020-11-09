@@ -8,19 +8,16 @@
 <script lang="ts">
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 import { Component, Vue, Watch, Prop } from "vue-property-decorator";
+import { getTopics } from "@/api/request";
 
 @Component({
   name: ""
 })
 export default class extends Vue {
   title: string = "djskfh s";
-  login() {
-    uni.request({
-      url:
-        "https://www.easy-mock.com/mock/5f85187a29d84206ef0e7510/api/test/one",
-      success: res => {
-        console.log(res.data);
-      }
+  async login() {
+    await getTopics().then(rsp => {
+      console.log(rsp);
     });
   }
 }
