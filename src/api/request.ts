@@ -1,7 +1,7 @@
 import * as Api from "./api";
 import * as Inter from "./inter.d";
 
-//request.ts 获取header头 返回值是RequestHeader类型
+// 获取header头 返回值是RequestHeader类型
 const getRequestHeader = (): Inter.RequestHeader => {
   let token: string = uni.getStorageSync("token");
   return token
@@ -29,7 +29,9 @@ const NormalRquestData: Inter.RequestBase = {
   title: "数据加载中", //loading提示文字
   failToast: false // 一般我们会处理相应业务逻辑，就不直接提示阻断流程
 };
-const $http = (reqData: Partial<Inter.RequestBase>): Promise<any> => {
+
+//封装uni网络请求  uni.request()
+const http = (reqData: Partial<Inter.RequestBase>): Promise<any> => {
   // 将不存在的参数字段使用默认值进行替换
   let req: Inter.RequestBase = { ...NormalRquestData, ...reqData };
   //返回Promise
@@ -68,8 +70,46 @@ const $http = (reqData: Partial<Inter.RequestBase>): Promise<any> => {
 
 // 调用封装方法 返回promise对象 得到获取到的数据
 export const getTopics = (): Promise<any> => {
-  return $http({
+  return http({
     url: Api.topics,
     method: "GET"
+  });
+};
+
+//使用Promise封装uni.login()
+export const login = (
+  req: UniApp.LoginOptions = {}
+): Promise<UniApp.LoginRes> => {
+  return new Promise((reslove, reject) => {
+    uni.login({
+      provider: req.provider ?? "weixin",
+      success: rsp => {
+        if (rsp.code) {
+          reslove(rsp);
+        } else {
+          reject(rsp);
+        }
+      },
+      fail: err => {
+        reject(err);
+      }
+    });
+  });
+};
+
+//使用Promise封装uni.getUserInfo()
+export const getUserInfo = (
+  req: UniApp.GetUserInfoOptions = {}
+): Promise<UniApp.GetUserInfoRes> => {
+  return new Promise((reslove, reject) => {
+    uni.getUserInfo({
+      provider: req.provider ?? "weixin",
+      success: rsp => {
+        reslove(rsp);
+      },
+      fail: err => {
+        reject(err);
+      }
+    });
   });
 };
