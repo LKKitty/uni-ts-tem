@@ -40,7 +40,6 @@ import { getTopics, login, getUserInfo } from "@/api/request";
   name: ""
 })
 export default class extends Vue {
-  title: string = "djskfh s";
   isCanUse: boolean = false;
   userInfo: Partial<UniApp.UserInfo> = {}; //用户信息(头像/昵称)
 
