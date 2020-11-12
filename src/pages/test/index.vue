@@ -1,6 +1,6 @@
 <template>
   <view>
-    <p>11111</p>
+    <text>11111</text>
     <input
       type="text"
       v-model="value"
@@ -20,19 +20,25 @@
     </button>
     <!-- 插件 -->
     <Calender v-if="showPop" />
+    <uni-badge text="1"></uni-badge>
+    <uni-search-bar></uni-search-bar>
   </view>
 </template>
 
 <script lang="ts">
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 import { Component, Vue, Watch, Prop } from "vue-property-decorator";
-import Calender from "@/components/uni-calendar/uni-calendar.vue";
+import Calender from "@dcloudio/uni-ui/lib/uni-calendar/uni-calendar.vue";
 import { component } from "vue/types/umd";
+import uniBadge from "@dcloudio/uni-ui/lib/uni-badge/uni-badge.vue";
+import uniSearchBar from "@dcloudio/uni-ui/lib/uni-search-bar/uni-search-bar.vue";
 
 @Component({
   name: "",
   components: {
-    Calender
+    Calender,
+    uniBadge,
+    uniSearchBar
   }
 })
 export default class extends Vue {

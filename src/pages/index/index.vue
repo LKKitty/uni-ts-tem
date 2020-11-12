@@ -1,6 +1,5 @@
 <template>
   <view>
-    <!-- #ifdef MP-WEIXIN -->
     <view v-if="!isCanUse">
       <view>
         <view class="header">
